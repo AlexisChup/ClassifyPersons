@@ -1,10 +1,10 @@
 import "./styles.css";
+import ClassifyPersons from "./ClassifyPersons/ClassifyPersons";
 
 export default function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox Something happens</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <ClassifyPersons />
     </div>
   );
 }
