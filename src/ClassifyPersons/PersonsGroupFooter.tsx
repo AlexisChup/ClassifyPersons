@@ -52,7 +52,6 @@ const PersonsGroupFooter = () => {
             ))}
           </Input>
         </Col>
-        {/* <Col className="px-1"></Col> */}
       </Row>
     </CardFooter>
   );

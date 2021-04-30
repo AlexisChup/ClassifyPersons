@@ -1,5 +1,4 @@
 import UnClassifiedPersons from "./UnClassifiedPersons";
-import { useRef, useEffect } from "react";
 
 const cssUnclassifiedPersonsContainer = {
   display: "flex",
