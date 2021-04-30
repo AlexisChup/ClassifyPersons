@@ -10,13 +10,6 @@ const ClassifiedPersonsContainer = () => {
       <ClassifiedPersonItem />
       <ClassifiedPersonItem />
       <ClassifiedPersonItem />
-      <ClassifiedPersonItem />
-      <ClassifiedPersonItem />
-      <ClassifiedPersonItem />
-      <ClassifiedPersonItem />
-      <ClassifiedPersonItem />
-      <ClassifiedPersonItem />
-      <ClassifiedPersonItem />
     </>
   );
 };

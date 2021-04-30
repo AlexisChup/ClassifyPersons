@@ -12,7 +12,6 @@ const cssPersonsGroup = {
 const cssPersonsGroupBody = {
   backgroundColor: "#f8f9fa",
   flexDirection: "column",
-  height: "80%",
   overflow: "auto"
 };
 

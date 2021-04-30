@@ -20,10 +20,9 @@ const ClassifyPersons = () => {
         style={{
           display: "flex",
           justifyContent: "flex-end",
-          alignItems: "stretch",
-          marginRight: 5,
-          marginBottom: 5
+          alignItems: "stretch"
         }}
+        className="m-2 p-2"
       >
         <Button color="primary" className="mr-1">
           Save

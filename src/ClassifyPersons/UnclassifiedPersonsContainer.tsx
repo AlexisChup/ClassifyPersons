@@ -1,19 +1,17 @@
 import AddPersonsGroup from "./AddPersonsGroup";
 import UnClassifiedPersons from "./UnClassifiedPersons";
+import { useRef, useEffect } from "react";
 
 const cssUnclassifiedPersonsContainer = {
   display: "flex",
   flexGrow: 1,
   flexShrink: 1,
-  flexBasis: 0,
-  margin: 5,
-  backgroundColor: "#CCC",
-  padding: 10
+  flexBasis: 0
 };
 
 const UnclassifiedPersonsContainer = () => {
   return (
-    <div style={cssUnclassifiedPersonsContainer}>
+    <div style={cssUnclassifiedPersonsContainer} className="m-2 p-2">
       <AddPersonsGroup />
       <UnClassifiedPersons />
     </div>

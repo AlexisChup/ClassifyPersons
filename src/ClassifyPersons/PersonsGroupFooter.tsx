@@ -43,7 +43,7 @@ const PersonsGroupFooter = () => {
             bsSize="sm"
           >
             <option value="favoriteColor" disabled>
-              favoriteColor
+              favorite color
             </option>
             {favoriteColorOptions.map((option, index) => (
               <option value={option} key={index}>

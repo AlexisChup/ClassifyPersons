@@ -2,9 +2,7 @@ import PersonsGroup from "./PersonsGroup";
 
 const cssPersonsGroupContainer = {
   display: "flex",
-  margin: 5,
-  backgroundColor: "#CCC",
-  padding: 10,
+  // backgroundColor: "#CCC",
   overflow: "auto",
   flexGrow: 1,
   flexShrink: 1,
@@ -12,11 +10,12 @@ const cssPersonsGroupContainer = {
 };
 
 const PersonsGroupContainer = () => {
-  const personsGroupList = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-  // const personsGroupList = [1];
+  // const personsGroupList = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  // const personsGroupList = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const personsGroupList = [1];
 
   return (
-    <div style={cssPersonsGroupContainer}>
+    <div style={cssPersonsGroupContainer} className="m-2 p-2">
       {personsGroupList.map((personsGroup, index) => (
         <PersonsGroup />
       ))}
