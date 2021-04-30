@@ -2,28 +2,24 @@ import PersonsGroup from "./PersonsGroup";
 
 const cssPersonsGroupContainer = {
   display: "flex",
-  flexGrow: 1,
   margin: 5,
   backgroundColor: "#CCC",
   padding: 10,
-  overflow: "auto"
-  // maxHeight: "40vh"
+  overflow: "auto",
+  flexGrow: 1,
+  flexShrink: 1,
+  flexBasis: 0
 };
 
 const PersonsGroupContainer = () => {
+  // const personsGroupList = [1, 1, 1, 1, 1, 1];
+  const personsGroupList = [1];
+
   return (
     <div style={cssPersonsGroupContainer}>
-      <PersonsGroup />
-      <PersonsGroup />
-      <PersonsGroup />
-      <PersonsGroup />
-      <PersonsGroup />
-      <PersonsGroup />
-      <PersonsGroup />
-      <PersonsGroup />
-      <PersonsGroup />
-      <PersonsGroup />
-      <PersonsGroup />
+      {personsGroupList.map((personsGroup, index) => (
+        <PersonsGroup />
+      ))}
     </div>
   );
 };
