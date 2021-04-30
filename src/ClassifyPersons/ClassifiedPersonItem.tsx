@@ -1,5 +1,11 @@
+const cssClassifiedPersonItem = {
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center"
+};
+
 const ClassifiedPersonItem = () => {
-  return <div>ClassifiedPersonItem</div>;
+  return <div className="shadow mb-1 d-flex p-2 bg-light ">Person's id:</div>;
 };
 
 export default ClassifiedPersonItem;

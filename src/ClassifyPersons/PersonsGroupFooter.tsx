@@ -17,11 +17,14 @@ const PersonsGroupFooter = () => {
             type="select"
             name="years-option-name-"
             id="years-option-id-"
-            value={yearsOptions[0]}
+            value="years"
             className="p-0"
             style={{ fontSize: "9px" }}
             bsSize="sm"
           >
+            <option value="years" disabled>
+              years
+            </option>
             {yearsOptions.map((option, index) => (
               <option value={option} key={index}>
                 {option}
@@ -34,11 +37,14 @@ const PersonsGroupFooter = () => {
             type="select"
             name="favoriteColor-option-name-"
             id="favoriteColor-option-id-"
-            value={favoriteColorOptions[0]}
+            value="favoriteColor"
             className="p-0"
             style={{ fontSize: "9px" }}
             bsSize="sm"
           >
+            <option value="favoriteColor" disabled>
+              favoriteColor
+            </option>
             {favoriteColorOptions.map((option, index) => (
               <option value={option} key={index}>
                 {option}

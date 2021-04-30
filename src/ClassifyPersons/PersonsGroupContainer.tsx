@@ -12,8 +12,8 @@ const cssPersonsGroupContainer = {
 };
 
 const PersonsGroupContainer = () => {
-  // const personsGroupList = [1, 1, 1, 1, 1, 1];
-  const personsGroupList = [1];
+  const personsGroupList = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  // const personsGroupList = [1];
 
   return (
     <div style={cssPersonsGroupContainer}>
