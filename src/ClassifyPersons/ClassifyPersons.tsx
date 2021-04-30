@@ -7,8 +7,8 @@ const cssClassifyPersons = {
   display: "flex",
   flexDirection: "column",
   margin: "0px",
-  height: "100%",
-  width: "100%"
+  height: "100%", // Only those 2 parameters are used to
+  width: "100%" // adapt the feature's size
 };
 
 const ClassifyPersons = () => {
@@ -19,17 +19,20 @@ const ClassifyPersons = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           alignItems: "stretch"
         }}
         className="m-2 p-2"
       >
-        <Button color="primary" className="mr-1">
-          Save
-        </Button>
-        <Button color="danger" className="ml-1">
-          Reset
-        </Button>
+        <Button color="success">ADD GROUP</Button>
+        <div className="">
+          <Button color="primary" className="mr-1">
+            Save
+          </Button>
+          <Button color="danger" className="ml-1">
+            Reset
+          </Button>
+        </div>
       </div>
     </div>
   );
