@@ -10,11 +10,11 @@ const cssPersonsGroup = {
   flexDirection: "column"
 };
 
-const PersonsGroup = () => {
+const PersonsGroup = (props: any) => {
   return (
     <Card style={cssPersonsGroup} className="mr-3">
       <PersonsGroupTitle />
-      <PersonsGroupBody />
+      <PersonsGroupBody droppableId={props.droppableId} />
       <PersonsGroupFooter />
     </Card>
   );
