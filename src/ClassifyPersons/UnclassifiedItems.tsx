@@ -3,10 +3,10 @@ import { Draggable } from "react-beautiful-dnd";
 import { uuid } from "uuidv4";
 
 const UnclassifiedItems = (props: any) => {
-  let personsList = [uuid(), uuid()];
+  const { id, firstName, lastName, years, favoriteColor } = props.person;
 
   return (
-    <Draggable draggableId={props.id} index={props.index} key={props.id}>
+    <Draggable draggableId={id} index={props.index} key={id}>
       {(provided, snapshot) => (
         <div
           ref={provided.innerRef}
@@ -15,11 +15,11 @@ const UnclassifiedItems = (props: any) => {
           key={props.id}
           className="d-flex mx-0 shadow mb-1 p-2 bg-white"
         >
-          <Col className="border-right">{props.id}</Col>
-          <Col className="border-right">Jean</Col>
-          <Col className="border-right">Durand</Col>
-          <Col className="border-right">27</Col>
-          <Col className="">RED</Col>
+          <Col className="border-right">{id}</Col>
+          <Col className="border-right">{firstName}</Col>
+          <Col className="border-right">{lastName}</Col>
+          <Col className="border-right">{years}</Col>
+          <Col className="">{favoriteColor}</Col>
         </div>
       )}
     </Draggable>

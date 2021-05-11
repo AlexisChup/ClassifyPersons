@@ -1,4 +1,5 @@
 import PersonsGroup from "./PersonsGroup";
+import { useSelector } from "react-redux";
 import { uuid } from "uuidv4";
 
 const cssPersonsGroupContainer = {
@@ -12,13 +13,20 @@ const cssPersonsGroupContainer = {
 const PersonsGroupContainer = () => {
   // const personsGroupList = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   // const personsGroupList = [1, 1, 1, 1, 1, 1, 1, 1, 1];
-  const personsGroupList = [1, 1];
+  // const personsGroupList = [1, 1];
+  const listClassifiedPersons = useSelector(
+    (state: any) => state.sortedPersons.classified
+  );
 
   return (
     <div style={cssPersonsGroupContainer} className="m-2 p-2">
-      {personsGroupList.map((personsGroup, index) => (
-        <PersonsGroup droppableId={uuid()} key={index} />
-      ))}
+      {listClassifiedPersons ? (
+        listClassifiedPersons.map((personsGroup, index) => (
+          <PersonsGroup droppableId={uuid()} key={index} />
+        ))
+      ) : (
+        <>Please add group</>
+      )}
     </div>
   );
 };

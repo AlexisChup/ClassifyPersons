@@ -1,5 +1,7 @@
 import { Button } from "reactstrap";
 import { DragDropContext } from "react-beautiful-dnd";
+import { useSelector, useDispatch } from "react-redux";
+import { onDragEnd } from "../redux/reducers/utils";
 
 import PersonsGroupContainer from "./PersonsGroupContainer";
 import UnclassifiedPersonsContainer from "./UnclassifiedPersonsContainer";
@@ -12,13 +14,21 @@ const cssClassifyPersons = {
   width: "80%" // adapt the feature's size,
 };
 
-const onDragEnd = (result) => {
-  console.log("result onDragEnd :", result);
-};
+// const onDragEnd = (result) => {
+//   console.log("result onDragEnd :", result);
+// };
 
 const ClassifyPersons = () => {
+  const dispatch: any = useDispatch();
+  const listUnclassifiedPersons: any = useSelector(
+    (state: any) => state.sortedPersons.unclassified
+  );
   return (
-    <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
+    <DragDropContext
+      onDragEnd={(result) =>
+        onDragEnd(result, dispatch, listUnclassifiedPersons)
+      }
+    >
       <div style={cssClassifyPersons}>
         <PersonsGroupContainer />
         <UnclassifiedPersonsContainer />

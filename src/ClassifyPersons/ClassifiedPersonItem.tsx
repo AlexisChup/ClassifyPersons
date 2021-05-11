@@ -1,7 +1,6 @@
 import { Draggable } from "react-beautiful-dnd";
 
 const ClassifiedPersonItem = (props: any) => {
-  console.log("props last child : ", props);
   return (
     <Draggable draggableId={props.id} index={props.index} key={props.id}>
       {(provided, snapshot) => (

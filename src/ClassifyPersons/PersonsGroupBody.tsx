@@ -1,5 +1,6 @@
 import { CardBody } from "reactstrap";
 import { Droppable } from "react-beautiful-dnd";
+import { useSelector } from "react-redux";
 import { uuid } from "uuidv4";
 
 import ClassifiedPersonItem from "./ClassifiedPersonItem";
