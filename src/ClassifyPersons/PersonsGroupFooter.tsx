@@ -1,11 +1,39 @@
 import { CardFooter, Row, Col, Label, Input } from "reactstrap";
+import { UPDATE_CRITERION } from "../redux/actionTypes";
+import { useSelector, useDispatch } from "react-redux";
+import { Criteria } from "../redux/index.d";
 
-const yearsOptions: number[] = [10, 20, 30, 40];
-const favoriteColorOptions: string[] = ["red", "yellow", "blue", "green"];
+export const yearsOptions: number[] = [10, 20, 30, 40, 50, 60, 70];
+export const favoriteColorOptions: string[] = [
+  "red",
+  "yellow",
+  "blue",
+  "green"
+];
 
-const PersonsGroupFooter = () => {
+const PersonsGroupFooter = (props: any) => {
+  const dispatch = useDispatch();
+  const { minYears, favoriteColor } = useSelector(
+    (state: any) => state.sortedPersons.classified[props.indexGroup].criteria
+  );
+
+  const onChangeSelect = (value, criterion) => {
+    if (props.isGroupEmpty) {
+      dispatch({
+        type: UPDATE_CRITERION,
+        payload: {
+          indexGroup: props.indexGroup,
+          value,
+          criterion
+        }
+      });
+    } else {
+      alert("You cannot modify params with an non empty group !");
+    }
+  };
+
   return (
-    <CardFooter className="p-1">
+    <CardFooter className="p-1 d-flex flex-column">
       <Row className="pl-2 py-0 mx-0">
         <Label className="p-0" size="sm" style={{ fontSize: "10px" }}>
           Criteria
@@ -17,7 +45,8 @@ const PersonsGroupFooter = () => {
             type="select"
             name="years-option-name-"
             id="years-option-id-"
-            value="years"
+            value={minYears ? minYears : "years"}
+            onChange={(event) => onChangeSelect(event.target.value, "minYears")}
             className="p-0"
             style={{ fontSize: "9px" }}
             bsSize="sm"
@@ -37,8 +66,11 @@ const PersonsGroupFooter = () => {
             type="select"
             name="favoriteColor-option-name-"
             id="favoriteColor-option-id-"
-            value="favoriteColor"
+            value={favoriteColor ? favoriteColor : "favoriteColor"}
             className="p-0"
+            onChange={(event) =>
+              onChangeSelect(event.target.value, "favoriteColor")
+            }
             style={{ fontSize: "9px" }}
             bsSize="sm"
           >

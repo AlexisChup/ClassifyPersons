@@ -2,6 +2,7 @@ import { Button } from "reactstrap";
 import { DragDropContext } from "react-beautiful-dnd";
 import { useSelector, useDispatch } from "react-redux";
 import { onDragEnd } from "../redux/reducers/utils";
+import { CREATE_GROUP } from "../redux/actionTypes";
 
 import PersonsGroupContainer from "./PersonsGroupContainer";
 import UnclassifiedPersonsContainer from "./UnclassifiedPersonsContainer";
@@ -20,13 +21,14 @@ const cssClassifyPersons = {
 
 const ClassifyPersons = () => {
   const dispatch: any = useDispatch();
-  const listUnclassifiedPersons: any = useSelector(
-    (state: any) => state.sortedPersons.unclassified
+  const listSortedPersons: any = useSelector(
+    (state: any) => state.sortedPersons
   );
+  const listPersons: any = useSelector((state: any) => state.listPersons);
   return (
     <DragDropContext
       onDragEnd={(result) =>
-        onDragEnd(result, dispatch, listUnclassifiedPersons)
+        onDragEnd(result, dispatch, listPersons, listSortedPersons)
       }
     >
       <div style={cssClassifyPersons}>
@@ -40,7 +42,16 @@ const ClassifyPersons = () => {
           }}
           className="m-2 p-2"
         >
-          <Button color="success">ADD GROUP</Button>
+          <Button
+            color="success"
+            onClick={() =>
+              dispatch({
+                type: CREATE_GROUP
+              })
+            }
+          >
+            CREATE GROUP
+          </Button>
           <div className="">
             <Button color="primary" className="mr-1">
               Save

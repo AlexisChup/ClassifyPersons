@@ -13,9 +13,18 @@ const cssPersonsGroup = {
 const PersonsGroup = (props: any) => {
   return (
     <Card style={cssPersonsGroup} className="mr-3">
-      <PersonsGroupTitle />
-      <PersonsGroupBody droppableId={props.droppableId} />
-      <PersonsGroupFooter />
+      <PersonsGroupTitle
+        isGroupEmpty={!props.group.listPersonsId.length}
+        index={props.index}
+      />
+      <PersonsGroupBody
+        droppableId={props.droppableId}
+        listPersonsId={props.group.listPersonsId}
+      />
+      <PersonsGroupFooter
+        indexGroup={props.index}
+        isGroupEmpty={!props.group.listPersonsId.length}
+      />
     </Card>
   );
 };

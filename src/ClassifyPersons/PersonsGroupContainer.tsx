@@ -14,15 +14,23 @@ const PersonsGroupContainer = () => {
   // const personsGroupList = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   // const personsGroupList = [1, 1, 1, 1, 1, 1, 1, 1, 1];
   // const personsGroupList = [1, 1];
-  const listClassifiedPersons = useSelector(
+  const listGroups = useSelector(
     (state: any) => state.sortedPersons.classified
   );
 
+  const id = ["123", "456789", "567890", "6747474", "63773575", "858458"];
+
   return (
     <div style={cssPersonsGroupContainer} className="m-2 p-2">
-      {listClassifiedPersons ? (
-        listClassifiedPersons.map((personsGroup, index) => (
-          <PersonsGroup droppableId={uuid()} key={index} />
+      {listGroups.length > 0 ? (
+        listGroups.map((group, index) => (
+          <PersonsGroup
+            droppableId={"droppable-" + index}
+            // droppableId={id[index]}
+            key={index}
+            index={index}
+            group={group}
+          />
         ))
       ) : (
         <>Please add group</>

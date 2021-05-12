@@ -20,11 +20,15 @@ export default function UnClassifiedPersons(props: any) {
     }
   }
 
+  const styleUnClassifiedPersons = (snapshot) => ({
+    backgroundColor: snapshot.isDraggingOver ? "#d9d9d9" : "#f8f9fa"
+  });
+
   return (
-    <div className="p-0 bg-light w-100">
+    <div className="p-0 w-100 d-flex flex-column">
       <Droppable
-        droppableId="droppable-id-unclassified"
-        key="droppable-id-unclassified"
+        droppableId="droppable-unclassified-id"
+        key="droppable-unclassified-id"
       >
         {(provided, snapshot) => (
           <>
@@ -35,8 +39,13 @@ export default function UnClassifiedPersons(props: any) {
               <Col className="border-right">Years</Col>
               <Col className="">Favorite Color</Col>
             </div>
-            <div {...provided.droppableProps} ref={provided.innerRef}>
-              {listUnclassifiedPersonsId ? (
+            <div
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+              className="d-flex flex-column flex-grow-1"
+              style={styleUnClassifiedPersons(snapshot)}
+            >
+              {listUnclassifiedPersonsId.length > 0 ? (
                 listUnclassifiedPersonsId.map((item, index) => (
                   <UnclassifiedItems
                     key={index}
@@ -45,8 +54,9 @@ export default function UnClassifiedPersons(props: any) {
                   />
                 ))
               ) : (
-                <>Empty</>
+                <div className="d-flex flex-column"></div>
               )}
+              {provided.placeholder}
             </div>
           </>
         )}

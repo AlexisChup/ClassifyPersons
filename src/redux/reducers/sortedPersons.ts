@@ -1,9 +1,20 @@
-import { ON_DRAG_END_PERSONS } from "../actionTypes";
-import { ReduxSortedPersons } from "../index.d";
+import {
+  CREATE_GROUP,
+  ON_DRAG_END_PERSONS,
+  REMOVE_GROUP,
+  UPDATE_CRITERION
+} from "../actionTypes";
+import {
+  ReduxSortedPersons,
+  ClassifiedPersonsId,
+  ListPersonsId,
+  Criteria
+} from "../index.d";
+
 import { initialReduxListPersonsState } from "./listPersons";
 
 let initialReduxSortedPersons: ReduxSortedPersons = {
-  classified: undefined,
+  classified: [],
   unclassified: []
 };
 
@@ -20,13 +31,32 @@ const sortedPersons = (
   let newState: any = { ...state };
 
   switch (action.type) {
+    case CREATE_GROUP: {
+      const criteria: Criteria = {};
+      const listPersonsId: ListPersonsId = [];
+      const classifiedPersonsId: ClassifiedPersonsId = {
+        listPersonsId,
+        criteria
+      };
+
+      newState.classified.push(classifiedPersonsId);
+      return newState || state;
+    }
+    case REMOVE_GROUP: {
+      newState.classified.splice(action.payload.indexGroup, 1);
+
+      return newState || state;
+    }
     case ON_DRAG_END_PERSONS: {
-      if (action.payload.group === "unclassified") {
-        newState.unclassified = action.payload.listPersonsId;
-      } else {
-        newState.classified[action.payload.groupIndex] =
-          action.payload.listPersonsId;
-      }
+      newState = action.payload.newSortedPersons;
+
+      return newState || state;
+    }
+
+    case UPDATE_CRITERION: {
+      newState.classified[action.payload.indexGroup].criteria[
+        action.payload.criterion
+      ] = action.payload.value;
 
       return newState || state;
     }
