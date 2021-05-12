@@ -15,10 +15,6 @@ const cssClassifyPersons = {
   width: "80%" // adapt the feature's size,
 };
 
-// const onDragEnd = (result) => {
-//   console.log("result onDragEnd :", result);
-// };
-
 const ClassifyPersons = () => {
   const dispatch: any = useDispatch();
   const listSortedPersons: any = useSelector(

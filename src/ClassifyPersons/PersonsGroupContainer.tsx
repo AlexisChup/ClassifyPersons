@@ -1,6 +1,6 @@
 import PersonsGroup from "./PersonsGroup";
 import { useSelector } from "react-redux";
-import { uuid } from "uuidv4";
+import { Card } from "reactstrap";
 
 const cssPersonsGroupContainer = {
   display: "flex",
@@ -10,10 +10,15 @@ const cssPersonsGroupContainer = {
   overflow: "auto"
 };
 
+const cssPersonsGroupEmpty = {
+  width: "200px",
+  minWidth: "200px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center"
+};
+
 const PersonsGroupContainer = () => {
-  // const personsGroupList = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-  // const personsGroupList = [1, 1, 1, 1, 1, 1, 1, 1, 1];
-  // const personsGroupList = [1, 1];
   const listGroups = useSelector(
     (state: any) => state.sortedPersons.classified
   );
@@ -33,7 +38,12 @@ const PersonsGroupContainer = () => {
           />
         ))
       ) : (
-        <>Please add group</>
+        <div
+          style={cssPersonsGroupEmpty}
+          className="mr-3 shadow text-center font-weight-bold"
+        >
+          Use button bellow <br /> to create group
+        </div>
       )}
     </div>
   );
